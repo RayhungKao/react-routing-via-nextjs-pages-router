@@ -1,13 +1,14 @@
-import "@/styles/globals.css";
 import React, { useState } from 'react';
-import PostContext from '../contexts/PostContext';
+import PostContext from './PostContext';
 
-export default function App({ Component, pageProps }) {
+function PostProvider({ children }) {
   const [posts, setPosts] = useState([]);
-  
+
   return (
     <PostContext.Provider value={{ posts, setPosts }}>
-      <Component {...pageProps} />
+      {children}
     </PostContext.Provider>
   );
 }
+
+export default PostProvider;
