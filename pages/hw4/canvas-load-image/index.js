@@ -31,8 +31,8 @@ export default function CanvasLoadImage() {
       const context = canvas.getContext("2d");
       const img = new Image();
       img.onload = function () {
-        canvas.width = img.width;
-        canvas.height = img.height;
+        canvas.width = Math.max(img.width, img.height);
+        canvas.height = Math.max(img.width, img.height);
 
         // Translate to the center of the canvas
         context.translate(canvas.width / 2, canvas.height / 2);
@@ -44,7 +44,10 @@ export default function CanvasLoadImage() {
         // Apply a blur filter to the context
         context.filter = `blur(${blur}px)`;
 
-        context.drawImage(img, 0, 0, img.width, img.height);
+        // Draw the image at the canvas center after rotating
+        const dx = canvas.width / 2 - img.width / 2;
+        const dy = canvas.height / 2 - img.height / 2;
+        context.drawImage(img, dx, dy, img.width, img.height);
 
         // Set the href of the download link to the data URL of the canvas
         const dataUrl = canvas.toDataURL("image/png");
