@@ -1,0 +1,27 @@
+:root {
+  --background-color: #f8f8fa;
+  --link-color: #035ac5;
+  --link-hover-color: #f41d11;
+}
+
+.layoutContainer {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar {
+  background-color: var(--background-color);
+}
+
+.navbar a {
+  margin-right: 1rem;
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: var(--link-hover-color);
+}

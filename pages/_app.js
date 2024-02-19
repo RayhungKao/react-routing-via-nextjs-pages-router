@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import React, { useState } from "react";
 import PostContext from "../contexts/PostContext";
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 
 export default function App({ Component, pageProps }) {
   const [posts, setPosts] = useState([]);
